@@ -1,34 +1,36 @@
 # Diagnóstico de retomada - Teoria da Computação
 
-Esta atividade serve para mapear o que você já domina sobre linguagens formais, autômatos, gramáticas e computabilidade.
-
-Responda individualmente. Use suas palavras. Se usar IA depois da primeira tentativa, registre o uso na seção 7.
+ Atividade proposta para saber meu domínio referente aos seguintes conteúdos: 
+ - **Linguagens Formais**
+ - **Autômatos**
+ - **Gramáticas**
+ - **Computabilidade**
 
 ## 1. Mapa do que eu lembro
 
-Marque cada tópico como: lembro bem, lembro parcialmente, não lembro, nunca vi ou não tenho certeza.
-
-- alfabeto:
-- cadeia:
-- linguagem:
-- gramática:
-- autômato finito:
-- linguagem regular:
-- linguagem livre de contexto:
-- linguagem sensível ao contexto:
-- linguagem irrestrita:
-- hierarquia de Chomsky:
-- computabilidade:
-- máquina de Turing:
+- **`Alfabeto`**: Lembro bem
+- **`Cadeia`**: Lembro bem
+- **`Linguagem`**: Lembro bem
+- **`Gramática`**: Lembro parcialmente
+- **`Autômato finito`**: Lembro bem
+- **`Linguagem regular`**: Lembro bem (Tipo 3)
+- **`Linguagem livre de contexto`**: Lembro bem (Tipo 2)
+- **`Linguagem sensível ao contexto`**: Lembro bem (Tipo 1)
+- **`Linguagem irrestrita`**: Lembro bem (Tipo 0)
+- **`Hierarquia de Chomsky`**: Lembro bem
+- **`Computabilidade`**: Nunca vi
+- **`Máquina de Turing`**: Lembro bem
 
 ## 2. Definições com exemplo
 
-Explique, com suas palavras e com um exemplo simples, usando o alfabeto `Sigma = {a, b}`.
-
 1. O que é um alfabeto?
+   - É o conjunto finito de símbolos básicos. Um exemplo é o alfabeto binário, podendo ser representado por `Sigma = {1, 0}`
 2. O que é uma cadeia?
+   - Ou também "Palavra", é uma sequência finita formada pelos símbolos do alfabeto. Um exemplo é o alfabeto `Sigma = {a, b}`, na qual podemos obter a cadeia `Sigma: {a, b, aa, bb, ab, baa, ababa, ...}` (uma cadeia infinita).
 3. O que é uma linguagem?
+   -
 4. O que é uma gramática?
+   - Pode ser definida como  as técnicas e regras ditadas à serem utilizadas, para gerar uma linguagem específico.
 
 ## 3. Linguagens
 
