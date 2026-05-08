@@ -1,4 +1,4 @@
-# Diagnóstico de retomada - Teoria da Computação    $x^2$
+# Diagnóstico de retomada - Teoria da Computação
 
  Atividade proposta para saber meu domínio referente aos seguintes conteúdos: 
  - **Linguagens Formais**
@@ -23,18 +23,18 @@
 
 ## 2. Definições com exemplo
 
-1. O que é um alfabeto?
+1. **O que é um alfabeto?**
    - É o conjunto finito de símbolos básicos. Um exemplo é o alfabeto binário, podendo ser representado por `Sigma = {1, 0}`
-2. O que é uma cadeia?
+2. **O que é uma cadeia?**
    - Ou também "Palavra", é uma sequência finita formada pelos símbolos do alfabeto. Um exemplo é o alfabeto `Sigma = {a, b}`, na qual podemos obter a cadeia `Sigma: {a, b, aa, bb, ab, baa, ababa, ...}` (uma cadeia infinita).
-3. O que é uma linguagem?
+3. **O que é uma linguagem?**
    - É o conjunto de todas as cadeias possíveis do alfabeto de qualquer comprimento. Um exemplo é o Fecho de Kleene, que pode ser denotado por $`L^* = L^0 ∪ L^1 ∪ L^2 ∪ L^3 ∪ ...`$
-4. O que é uma gramática?
+4. **O que é uma gramática?**
    - Pode ser definida como  as técnicas e regras ditadas à serem utilizadas, para gerar uma linguagem específico. Toda gramática é definida por 4 elementos: `G = (V, Sigma, P, S)`
 
 ## 3. Linguagens
 
-Considere as linguagens:
+Considerando as linguagens:
 
 ```text
 L1 = { w em {0,1}* | w termina com 01 }
@@ -42,18 +42,26 @@ L2 = { a^n b^n | n >= 0 }
 L3 = { a^n b^n c^n | n >= 0 }
 ```
 
-Para cada linguagem:
-
-1. escreva três palavras que pertencem à linguagem;
-2. escreva duas palavras que não pertencem;
-3. diga, se souber, em qual classe ela provavelmente se encaixa;
-4. explique o motivo em linguagem simples.
-
-Não há problema em dizer "não sei". Nesse caso, escreva o que te deixou em dúvida.
+1. **Três palavras que pertencem à linguagem:**
+   - L1 -> 110101, 100101, 111101
+   - L2 -> ab, aabb, aaabbb
+   - L3 -> abc, aabbcc, aaabbbccc
+2. **Duas palavras que não pertencem:**
+   - L1 -> 101010, 100111, 111111
+   - L2 -> ababaa, bab, bbbaaa
+   - L3 -> acaba, bacabaa, cba
+3. **Qual classe ela provavelmente se encaixa:**
+   - L1 -> Pertence a classe do Tipo 3, a gramática restrita.
+   - L2 -> Pertence a classe do Tipo 2, a gramática livre de contexto.
+   - L3 -> Pertence a classe do Tipo 1, a gramática sensível ao contexto.
+4. **Explicar o motivo em linguagem simples:**
+   - L1 -> Pois pode ser reconhecido como um Autômato Finito na qual não exige memorizar muitos dados, apenas ver se terminam em `01` ou não.
+   - L2 -> Pois ela pode ser reconhecida como um Autômato de Pilha e exige uma correspondência de mesma quantidade de letras.
+   - L3 -> Pois necessita de um modelo mais complexo e com memória de fita para verificá-la, diferente de uma Pilha.
 
 ## 4. Autômato finito
 
-Considere o autômato abaixo, sobre o alfabeto `{0,1}`:
+Considerando o autômato abaixo, sobre o alfabeto `{0,1}`:
 
 ```text
 Estados: q0, q1, q2
@@ -69,17 +77,55 @@ q2 --0--> q1
 q2 --1--> q0
 ```
 
-Responda:
-
-1. Qual linguagem esse autômato parece reconhecer?
-2. Execute manualmente as cadeias abaixo e diga se aceita ou rejeita:
-   - `01`
+1. **Qual linguagem esse autômato parece reconhecer?**
+   - A linguagem Restrita (Tipo 3)
+2. **Execute manualmente as cadeias abaixo e diga se aceita ou rejeita:**
+   - `01`:
+     - I -> Início: `q0`;
+     - II -> Lê `0`, vai para `q1´`;
+     - III -> Lê `1`, vai para `q2`;
+     - IV -> Fim da cadeia. Parou em `q2` (aceita)
    - `101`
+     - I -> Início: `q0`;
+     - II -> Lê `1`, continua em `q0´`;
+     - III -> Lê `0`, vai para `q1`;
+     - IV -> Lê `1`, vai para `q2`;
+     - V -> Fim da cadeia. Parou em `q2` (aceita)
    - `100`
+     - I -> Início: `q0`;
+     - II -> Lê `1`, continua em `q0´`;
+     - III -> Lê `0`, vai para `q1`;
+     - IV -> Lê `0`, continua em `q2`;
+     - V -> Fim da cadeia. Parou em `q1` (rejeita)
    - `1101`
+     - I -> Início: `q0`;
+     - II -> Lê `1`, continua em `q0´`;
+     - III -> Lê `1`, continua em `q0`;
+     - IV -> Lê `0`, vai para `q1`;
+     - V -> Lê `1`, vai para `q2`;
+     - VI -> Fim da cadeia. Parou em `q2` (aceito)
    - `111`
-3. Monte uma tabela curta mostrando o caminho dos estados para pelo menos duas cadeias.
+     - I -> Início: `q0`;
+     - II -> Lê `1`, continua em `q0´`;
+     - III -> Lê `1`, continua em `q0`;
+     - IV -> Lê `1`, continua em `q0`;
+     - V -> Fim da cadeia. Parou em `q0` (rejeita)
+3. **Tabela dos estados de duas cadeias.**
+**Caminho para a cadeia `101` (Aceita):**
 
+| Estado Atual | Símbolo Lido | Próximo Estado |
+| :--- | :--- | :--- |
+| **q0** (Início) | 1 | q0 |
+| q0 | 0 | q1 |
+| q1 | 1 | **q2** (Final) |
+
+**Caminho para a cadeia `100` (Rejeita):**
+
+| Estado Atual | Símbolo Lido | Próximo Estado |
+| :--- | :--- | :--- |
+| **q0** (Início) | 1 | q0 |
+| q0 | 0 | q1 |
+| q1 | 0 | **q1** (Fim da leitura) |
 ## 5. Gramática
 
 Considere a gramática:
@@ -91,36 +137,29 @@ S -> b
 
 Responda:
 
-1. Gere cinco cadeias produzidas por essa gramática.
-2. Descreva a linguagem em palavras.
-3. Essa gramática parece regular, livre de contexto ou outra classe? Justifique de forma simples.
+1. **Gere cinco cadeias produzidas por essa gramática.**
+   - `b`, `ab`, `aab`, `aaab`, `aaaab`
+2. **Descreva a linguagem em palavras.**
+   - Essa linguagem é formada por uma quantidade qualquer de `a` (ou mesmo nenhuma), e terminada por um único `b` de maneira obrigatória.
+3. **Essa gramática parece regular, livre de contexto ou outra classe? Justifique de forma simples.**
+   - Restrita (Tipo 3), pois sua regra de produção segue um formato linear bem rígido de formação.
 
 ## 6. Ponto de dificuldade
 
-Escolha um tópico da lista inicial e escreva:
+Escolher um tópico da lista inicial e escrever:
 
-1. o que você entende dele;
-2. onde você se confunde;
-3. que tipo de explicação ajudaria: desenho, exemplo, exercício guiado, analogia, prova passo a passo ou lista curta.
+1. **O que você entende dele:**
+   - `Linguagens` -> A diferenciação entre todas elas 
+   - `Máquina de Turing` -> O que ela é 
+3. **onde você se confunde:**
+   - `Linguagens` -> Como definir como aquela linguagem é daquele tipo (se é restrita, sensível ao contexto, etc).
+   - `Máquina de Turing` -> Ainda confundo quanto as transições, mesmo entendendo um pouco.
+5. **que tipo de explicação ajudaria: desenho, exemplo, exercício guiado, analogia, prova passo a passo ou lista curta.**
+   -Uma explicação passo a passo de exemplos seria muito bom e suficiente.
 
 ## 7. Uso de IA, se houver
 
 Se você usou IA depois da primeira tentativa, registre:
-
-```text
-Pergunta feita:
-Resumo da resposta:
-Como eu verifiquei:
-O que eu alterei na minha resposta:
-O que ainda não entendi:
-```
-
-## Submissão no Moodle
-
-Depois de finalizar, copie no Moodle:
-
-```text
-Repositório:
-Commit final:
-Autoavaliação: nível atual, maior dificuldade e tópico que precisa ser retomado.
-```
+- `Questão 3:` Utilização apenas para saber se minhas respostas estavam corretas. Os assuntos tradados eu entendo e utilizei de minhas próprias respostas
+- `Questão 4:` Verificar se minhas respostas estavam corretas (por ainda ter dúvida em definir algumas linguagens e o processo de transição). No mais, para criar o modelo da tabela no Markdown por praticidade.
+- `Questão 5:` Me ajudar a corrigi as respostas dela, por: não saber como funcionava aquela geração de cadeia e por definir seu tipo de linguagem (que eu achava ser Sensível ao Contexto mas era Restrita).
