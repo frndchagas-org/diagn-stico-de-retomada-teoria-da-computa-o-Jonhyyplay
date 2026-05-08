@@ -1,4 +1,4 @@
-# Diagnóstico de retomada - Teoria da Computação
+# Diagnóstico de retomada - Teoria da Computação    $x^2$
 
  Atividade proposta para saber meu domínio referente aos seguintes conteúdos: 
  - **Linguagens Formais**
@@ -28,9 +28,9 @@
 2. O que é uma cadeia?
    - Ou também "Palavra", é uma sequência finita formada pelos símbolos do alfabeto. Um exemplo é o alfabeto `Sigma = {a, b}`, na qual podemos obter a cadeia `Sigma: {a, b, aa, bb, ab, baa, ababa, ...}` (uma cadeia infinita).
 3. O que é uma linguagem?
-   -
+   - É o conjunto de todas as cadeias possíveis do alfabeto de qualquer comprimento. Um exemplo é o Fecho de Kleene, que pode ser denotado por $`L^* = L^0 ∪ L^1 ∪ L^2 ∪ L^3 ∪ ...`$
 4. O que é uma gramática?
-   - Pode ser definida como  as técnicas e regras ditadas à serem utilizadas, para gerar uma linguagem específico.
+   - Pode ser definida como  as técnicas e regras ditadas à serem utilizadas, para gerar uma linguagem específico. Toda gramática é definida por 4 elementos: `G = (V, Sigma, P, S)`
 
 ## 3. Linguagens
 
